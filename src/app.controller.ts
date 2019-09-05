@@ -29,7 +29,7 @@ export class AppController {
 
   // custom where
   //
-  // get localhost:3000/cats/name/Felix
+  // get localhost:3000/cats/name/felix
   @Get('name/:name')
   getFelix(@Param('name') name: string) {
     return this.appService.getByName(name);
@@ -45,7 +45,7 @@ export class AppController {
 
   // massive save() - as create; returns newly created cat
   //
-  // (HTTPie) http POST :3000/cats name=Fred age:=3 breed='Alley Cat'
+  // (HTTPie) http POST localhost:3000/cats name=Fred age:=3 breed='Alley Cat'
   @Post()
   create(@Body() cat) {
     return this.appService.create(cat);
@@ -61,7 +61,7 @@ export class AppController {
 
   // call regular DB stored function
   //
-  // get locahost:3000/cats/upper/lolcat
+  // get localhost:3000/cats/upper/lolcat
   @Get('upper/:name')
   uppercase(@Param('name') name: string) {
     return this.appService.upper(name);
@@ -98,7 +98,7 @@ export class AppController {
 
   // save a document (creating the schema if it doesn't exist)
   //
-  // (HTTPie) http POST localhos:3000/cats/report
+  // (HTTPie) http POST localhost:3000/cats/report
   @Post('report')
   saveReport() {
     const report = {
@@ -129,7 +129,7 @@ export class AppController {
 
   // retrieve a document by title property
   //
-  // GET localhost:3000/report/diet
+  // GET localhost:3000/cats/report/diet
   @Get('report/:title')
   getReport(@Param('title') title: string) {
     return this.appService.getReport(title);

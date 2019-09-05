@@ -1,75 +1,54 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+<h1 align="center"></h1>
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
-<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
-<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
-  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+<div align="center">
+  <a href="http://nestjs.com/" target="_blank">
+    <img src="https://nestjs.com/img/logo_text.svg" width="150" alt="Nest Logo" />
+  </a>
+</div>
 
-## Description
+<h3 align="center">Sample App for @nestjsplus/massive</h3>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<div align="center">
+  <a href="https://nestjs.com" target="_blank">
+    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="License" />
+    <img src="https://badge.fury.io/js/%40nestjsplus%2Fmassive.svg" alt="npm version" height="18">    <img src="https://img.shields.io/badge/built%20with-NestJs-red.svg" alt="Built with NestJS">
+  </a>
+</div>
 
-## Installation
+### What?
 
-```bash
-$ npm install
-```
+This is a standalone sample app showing how to use the [@nestjsplus/massive](https://github.com/nestjsplus/massive) package for integrating [MassiveJS](http://massivejs.org) with [Nest](https://nestjs.com).
 
-## Running the app
+You can clone and install it, and examine the source code to learn how to use the package.
 
-```bash
-# development
-$ npm run start
+The `src/app.controller.ts` file and `src/app.service.ts` files also demonstrate how to take advantage of some of Massive's nifty PostgreSQL integration capabilities.
 
-# watch mode
-$ npm run start:dev
+### Installation
 
-# production mode
-$ npm run start:prod
-```
+> git clone https://github.com/nestjsplus/massive-cats
 
-## Test
+Creates a folder called `massive-cats`
 
-```bash
-# unit tests
-$ npm run test
+> cd massive-cats
 
-# e2e tests
-$ npm run test:e2e
+> npm install
 
-# test coverage
-$ npm run test:cov
-```
+> npm run start:dev
 
-## Support
+See [the docs](https://gitub.com/nestjsplus/massive) for more.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Change Log
 
-## Stay in touch
+See [Changelog](CHANGELOG.md) for more information.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Contributing
 
-## License
+Contributions welcome! See [Contributing](CONTRIBUTING.md).
 
-  Nest is [MIT licensed](LICENSE).
+### Author
+
+**John Biundo (Y Prospect on [Discord](https://discord.gg/G7Qnnhy))**
+
+### License
+
+Licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
