@@ -31,6 +31,24 @@ Creates a folder called `massive-cats`
 
 > cd massive-cats
 
+#### Supply credentials
+
+This example assumes you have a PostgreSQL installation available. You'll need to add the PostgreSQL database credentials.
+
+The example uses [NestJS Configuration Manager](https://github.com/nestjsplus/config) to supply environment variables to the app. It's set up to expect a `development.env` file in a folder called `config` at the root level (a sibling to `src`).  (You can change any of these settings, or use more features of *NestJS Configuration Manager* by reading the docs, or hard code your credentials, or use another config manager, etc.).
+
+The `development.env` file should look like this:
+
+```
+host=<localhost, or IP address of your PostgreSQL server>
+port=<port PostgreSQL listens on>
+database=<database name>
+user=<database user>
+password=<database password>
+```
+
+#### Install dependencies and run
+
 > npm install
 
 > npm run start:dev
