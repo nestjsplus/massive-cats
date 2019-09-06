@@ -53,7 +53,7 @@ password=<database password>
 
 > npm run start:dev
 
-See [the docs](https://gitub.com/nestjsplus/massive) for more.
+See [the docs](https://github.com/nestjsplus/massive) for more.
 
 ### Change Log
 
