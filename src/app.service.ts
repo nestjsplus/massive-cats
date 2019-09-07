@@ -1,13 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { DB_CONNECTION } from './database/constants';
-import { ConfigService } from './config/config.service';
+import { MASSIVE_CONNECTION } from '@nestjsplus/massive';
 
 @Injectable()
 export class AppService {
-  constructor(
-    @Inject(DB_CONNECTION) private readonly db,
-    private readonly configService: ConfigService,
-  ) {}
+  constructor(@Inject(MASSIVE_CONNECTION) private readonly db) {}
 
   // create() is automatically registered as a function (just like a stored
   // db function), but it's just a text file in /dbscripts.  Since it's in the
@@ -89,8 +85,6 @@ export class AppService {
   }
 
   async getReport(title) {
-    return await this.db.reports.findDoc({
-      title: title,
-    });
+    return await this.db.reports.findDoc({ title });
   }
 }

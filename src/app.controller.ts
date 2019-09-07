@@ -5,6 +5,14 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  /**
+   * For each route handler, there's an (HTTPie - https://httpie.org) query
+   * to conveniently run it from a terminal prompt, shown just above the handler
+   */
+
+  // seed the db
+  //
+  // http get localhost:3000/cats/create
   @Get('create')
   createDb() {
     return this.appService.createDb();
@@ -12,8 +20,8 @@ export class AppController {
 
   // find all/by min age
   //
-  // get localhost:3000/cats
-  // get localhost:3000/cats?age=8
+  // http get localhost:3000/cats
+  // http get localhost:3000/cats?age=8
   @Get()
   findAll(@Query('age') age: number) {
     return this.appService.find(age);
@@ -21,7 +29,7 @@ export class AppController {
 
   // count
   //
-  // get localhost:3000/cats/count
+  // http get localhost:3000/cats/count
   @Get('count')
   getCount() {
     return this.appService.getCount();
@@ -29,7 +37,7 @@ export class AppController {
 
   // custom where
   //
-  // get localhost:3000/cats/name/felix
+  // http get localhost:3000/cats/name/felix
   @Get('name/:name')
   getFelix(@Param('name') name: string) {
     return this.appService.getByName(name);
@@ -37,7 +45,7 @@ export class AppController {
 
   // find one
   //
-  // get localhost:3000/cats/id/1
+  // http get localhost:3000/cats/id/1
   @Get('id/:id')
   findOne(@Param('id') id: number) {
     return this.appService.findOne(id);
@@ -45,7 +53,7 @@ export class AppController {
 
   // massive save() - as create; returns newly created cat
   //
-  // (HTTPie) http POST localhost:3000/cats name=Fred age:=3 breed='Alley Cat'
+  // http POST localhost:3000/cats name=Fred age:=3 breed='Alley Cat'
   @Post()
   create(@Body() cat) {
     return this.appService.create(cat);
@@ -53,7 +61,7 @@ export class AppController {
 
   // massive save() - as update; returns updated cat
   //
-  // (HTTPie) http PUT localhost:3000/cats/4 name=Freddy
+  // http PUT localhost:3000/cats/4 name=Freddy
   @Put(':id')
   update(@Param('id') id, @Body() cat) {
     return this.appService.update(id, cat);
@@ -61,7 +69,7 @@ export class AppController {
 
   // call regular DB stored function
   //
-  // get localhost:3000/cats/upper/lolcat
+  // http get localhost:3000/cats/upper/lolcat
   @Get('upper/:name')
   uppercase(@Param('name') name: string) {
     return this.appService.upper(name);
@@ -69,7 +77,7 @@ export class AppController {
 
   // call (local filesystem) script function with param (as if a stored DB function)
   //
-  // get localhost:3000/cats/scat/felix
+  // http get localhost:3000/cats/scat/felix
   @Get('scat/:name')
   scat(@Param('name') name: string) {
     return this.appService.getCat(name);
@@ -78,13 +86,15 @@ export class AppController {
   // use `decompose` feature to flatten normalized join query results into
   // nested JSON object
   //
-  // get localhost:3000/cats/people
+  // http get localhost:3000/cats/people
   @Get('people')
   getCatsPeople() {
     return this.appService.getCatsPeople();
   }
 
   // test using join syntax (WIP - not quite working yet :) )
+  //
+  // http get localhost:3000/cats/people/1
   @Get('people/:catid')
   join(@Param('catid') catid: number) {
     return this.appService.getCatPeopleJoin(catid);
@@ -98,9 +108,12 @@ export class AppController {
 
   // save a document (creating the schema if it doesn't exist)
   //
-  // (HTTPie) http POST localhost:3000/cats/report
+  // http post localhost:3000/cats/report
   @Post('report')
   saveReport() {
+    /**
+     * create a complex nested object to save
+     */
     const report = {
       title: 'diet',
       lines: [
@@ -129,7 +142,7 @@ export class AppController {
 
   // retrieve a document by title property
   //
-  // GET localhost:3000/cats/report/diet
+  // http get localhost:3000/cats/report/diet
   @Get('report/:title')
   getReport(@Param('title') title: string) {
     return this.appService.getReport(title);
