@@ -87,4 +87,60 @@ export class AppService {
   async getReport(title) {
     return await this.db.reports.findDoc({ title });
   }
+
+  /**
+   * messing around with camelCasing
+   *
+   */
+  // this method works without first camelCasing (i.e., ensure that the
+  // driverConfig does not specify a receive function to camel case)
+  //
+  // calls the catsPeople script function
+  async getCatsPeopleCamelize1() {
+    return await this.db.catsPeople([], {
+      decompose: {
+        pk: 'cat_id',
+        columns: {
+          cat_id: 'catId',
+          cat_name: 'catName',
+          age: 'age',
+          breed: 'breed',
+        },
+        people: {
+          pk: 'id',
+          columns: { id: 'personId', person_name: 'personName' },
+        },
+      },
+    });
+  }
+
+  // this method works with the driver config receive option passing a camelize
+  // function.
+  //
+  // calls the catsPeople script function
+  async getCatsPeopleCamelize2() {
+    return await this.db.catsPeople([], {
+      decompose: {
+        pk: 'catId',
+        columns: ['catId', 'catName', 'age', 'breed'],
+        people: {
+          pk: 'id',
+          columns: { id: 'personId', personName: 'personName' },
+        },
+      },
+    });
+  }
+
+  // use expressions to map column names of a find query
+  async findCatsPeopleCamel() {
+    return await this.db.cats_people.find(
+      {},
+      {
+        exprs: {
+          catId: 'cat_id',
+          personId: 'people_id',
+        },
+      },
+    );
+  }
 }

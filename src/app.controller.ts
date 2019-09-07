@@ -147,4 +147,41 @@ export class AppController {
   getReport(@Param('title') title: string) {
     return this.appService.getReport(title);
   }
+
+  /**
+   * Messing around with camel case
+   *
+   * See app.service.ts for corresponding functions/notes
+   *
+   * Note that there's a driverOption key 'receive' which
+   * can be set to apply a function to camelCase column
+   * names in results.  It does interact with other methods
+   * of dealing with camelCasing. See app.service.ts for
+   * more.
+   */
+
+  // Use this version **without** turning on the driver option
+  //
+  // http get localhost:3000/cats/camel1
+  @Get('camel1')
+  getCamel1() {
+    return this.appService.getCatsPeopleCamelize1();
+  }
+
+  // Use this version **with** the driver option (receive) turned on
+  //
+  // http get localhost:3000/cats/camel2
+  @Get('camel2')
+  getCamel2() {
+    return this.appService.getCatsPeopleCamelize2();
+  }
+
+  // This one just uses Massive's native "exprs" feature to alias
+  // columns.  Use **without** the driver option
+  //
+  // http get localhost:3000/cats/camel3
+  @Get('camel3')
+  getCamel3() {
+    return this.appService.findCatsPeopleCamel();
+  }
 }

@@ -4,8 +4,11 @@ import * as Joi from '@hapi/joi';
 import {
   MassiveConfigOptions,
   MassiveConnectOptions,
+  MassiveDriverOptions,
 } from '@nestjsplus/massive';
 import * as path from 'path';
+
+import { camelizeColumnNames } from '../camelize-functions';
 
 @Injectable()
 export class ConfigService extends ConfigManager {
@@ -59,4 +62,25 @@ export class ConfigService extends ConfigManager {
       scripts: path.resolve(__dirname, '../..', 'dbscripts'),
     };
   }
+
+  /**
+   * see pg-promise initialization options for details
+   * https://vitaly-t.github.io/pg-promise/module-pg-promise.html
+   */
+
+  // createMassiveDriverOptions(): MassiveDriverOptions {
+  //   return {
+  //     query: (e) => {
+  //       console.log('Query > ', e.query);
+  //     },
+  //   };
+  // }
+
+  // createMassiveDriverOptions(): MassiveDriverOptions {
+  //   return {
+  //     receive: (data, result, e) => {
+  //       camelizeColumnNames(data);
+  //     },
+  //   };
+  // }
 }

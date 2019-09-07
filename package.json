@@ -24,6 +24,7 @@
     "@nestjs/platform-express": "^6.0.0",
     "@nestjsplus/config": "^1.0.14",
     "@nestjsplus/massive": "file:../massive",
+    "humps": "^2.0.1",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3"
