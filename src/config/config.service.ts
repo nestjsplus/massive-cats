@@ -68,13 +68,13 @@ export class ConfigService extends ConfigManager {
    * https://vitaly-t.github.io/pg-promise/module-pg-promise.html
    */
 
-  // createMassiveDriverOptions(): MassiveDriverOptions {
-  //   return {
-  //     query: (e) => {
-  //       console.log('Query > ', e.query);
-  //     },
-  //   };
-  // }
+  createMassiveDriverOptions(): MassiveDriverOptions {
+    return {
+      query: e => {
+        console.log('Query > ', e.query);
+      },
+    };
+  }
 
   // createMassiveDriverOptions(): MassiveDriverOptions {
   //   return {
