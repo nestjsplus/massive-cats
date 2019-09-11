@@ -6,6 +6,7 @@ import { ConfigService } from './config/config.service';
 import { MassiveModule } from '@nestjsplus/massive';
 import * as path from 'path';
 import { camelizeColumnNames } from './camelize-functions';
+import { ConfigManagerModule } from '@nestjsplus/config';
 
 /**
  * Demonstrates several different methods of configuring the MassiveModule
@@ -44,7 +45,7 @@ import { camelizeColumnNames } from './camelize-functions';
   // configOptions and uses default values for driverOptions
   // =================================================================
   // imports: [
-  // MassiveModule.registerAsync(
+  //   MassiveModule.registerAsync(
   //     {
   //       useExisting: ConfigService,
   //     },
@@ -56,16 +57,23 @@ import { camelizeColumnNames } from './camelize-functions';
   // ],
   // =================================================================
   // Option 3 - Dynamic registration instantiating a new ConfigService
-  // provider.
+  // provider for connectOptions, then re-using it for configOptions
   //
-  // Note, this example only configures the connectOptions, and uses
-  // default values for configOptions and driverOptions
   // =================================================================
   imports: [
-    MassiveModule.registerAsync({
-      useClass: ConfigService,
-    }),
-    ConfigModule,
+    MassiveModule.registerAsync(
+      {
+        useClass: ConfigService,
+        imports: [
+          ConfigManagerModule.register({
+            useFile: 'config/development.env',
+          }),
+        ],
+      },
+      {
+        useExisting: ConfigService,
+      },
+    ),
   ],
   // =================================================================
   // Option 4 - instantiate a configService inside the MassiveModule
