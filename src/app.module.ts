@@ -44,37 +44,28 @@ import { ConfigManagerModule } from '@nestjsplus/config';
   // Note, this example only configures the connectOptions, and
   // configOptions and uses default values for driverOptions
   // =================================================================
-  // imports: [
-  //   MassiveModule.registerAsync(
-  //     {
-  //       useExisting: ConfigService,
-  //     },
-  //     {
-  //       useExisting: ConfigService,
-  //     },
-  //   ),
-  //   ConfigModule,
-  // ],
-  // =================================================================
-  // Option 3 - Dynamic registration instantiating a new ConfigService
-  // provider for connectOptions, then re-using it for configOptions
-  //
-  // =================================================================
   imports: [
     MassiveModule.registerAsync(
       {
-        useClass: ConfigService,
-        imports: [
-          ConfigManagerModule.register({
-            useFile: 'config/development.env',
-          }),
-        ],
+        useExisting: ConfigService,
+        imports: [ConfigModule],
       },
       {
         useExisting: ConfigService,
       },
     ),
+    ConfigModule,
   ],
+  // =================================================================
+  // Option 3 - Dynamic registration instantiating a new ConfigService
+  // provider for connectOptions
+  //
+  // =================================================================
+  // imports: [
+  //   MassiveModule.registerAsync({
+  //     useClass: ConfigService,
+  //   }),
+  // ],
   // =================================================================
   // Option 4 - instantiate a configService inside the MassiveModule
   // to provide it with custom configuration service
