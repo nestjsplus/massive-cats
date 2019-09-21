@@ -48,10 +48,11 @@ import { ConfigManagerModule } from '@nestjsplus/config';
     MassiveModule.registerAsync(
       {
         useExisting: ConfigService,
-        imports: [ConfigModule],
+        // imports: [ConfigModule],
       },
       {
         useExisting: ConfigService,
+        // imports: [ConfigModule],
       },
     ),
     ConfigModule,
